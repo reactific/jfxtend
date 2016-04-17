@@ -1,24 +1,24 @@
-package com.reactific.jfxtensions.beans.property
+package com.reactific.jfxtend.beans.property
 
 import javafx.beans.property.{Property, ObjectProperty}
 import javafx.beans.value.ObservableValue
 
 /** Unit Tests For ObjectPropertyExtensions */
 trait ObjectPropertyExtensions[T <: AnyRef] {
-  def wrapped : ObjectProperty[T]
+  def extendee : ObjectProperty[T]
 
   @inline def value_= (v: T) : Unit = {
-    wrapped.setValue(v)
+    extendee.setValue(v)
   }
 
-  @inline def value : T = wrapped.getValue
+  @inline def value : T = extendee.getValue
 
   /** Create a unidirectional binding from this Property to an ObservableValue of corresponding type
     *
     * @param v The observable value to bind to
     */
   @inline def <==(v: ObservableValue[T]) = {
-    wrapped.bind(v)
+    extendee.bind(v)
   }
 
   /**
@@ -27,7 +27,7 @@ trait ObjectPropertyExtensions[T <: AnyRef] {
     * @param  v the other ScalaFX Property
     */
   @inline def <==>(v: Property[T]) = {
-    wrapped.bindBidirectional(v)
+    extendee.bindBidirectional(v)
   }
 
 }

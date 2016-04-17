@@ -1,15 +1,15 @@
-package com.reactific.jfxtensions
+package com.reactific.jfxtend
 
 import javafx.application.Application
 import javafx.geometry.Pos
 import javafx.scene.layout.HBox
 import javafx.scene.paint.Color
 import javafx.scene.text.{TextAlignment, FontWeight, Font, Text}
-import javafx.scene.{Group, Scene}
-import javafx.stage.Stage
+import javafx.scene.Scene
+import javafx.stage.{Stage ⇒ JFXStage}
 
-import com.reactific.jfxtensions.stage._
-import com.reactific.jfxtensions.scene._
+import com.reactific.jfxtend.stage._
+import com.reactific.jfxtend.scene._
 
 
 /** JFXApplication extension to JavaFX Application */
@@ -24,13 +24,13 @@ abstract class JFXApplication extends Application {
 
   /** The Scene Creator
     * Your application subclass MUST override this to create the scene to be displayed. The stage should not be
-    * altered as it will have been preconfigured for the device your application is running on. Also, do not
+    * altered as it will have been pre-configured for the device your application is running on. Also, do not
     * install the scene in the stage, just return it.
     *
     * @param stage The stage for your application
     * @return The scene to display in your application's stage
     */
-  def createScene(stage: Stage) : Scene = {
+  def createScene(stage: JFXStage) : Scene = {
     val text = new Text("You forgot to override JFXApplication.createScene(Stage)")
     text.setFill(Color.LIGHTCORAL)
     text.setFont(Font.font("Arial Black", FontWeight.BLACK, 15))
@@ -42,9 +42,9 @@ abstract class JFXApplication extends Application {
     scene
   }
 
-  final def start(stage: Stage) = {
-    stage.setWidth(600)
-    stage.setHeight(400)
+  final def start(stage: JFXStage) = {
+    stage.width = 600
+    stage.height = 400
     stage.setFullScreen(capabilities.shouldStartFullScreen)
     stage.setTitle(applicationName)
     val scene = createScene(stage)
@@ -54,7 +54,7 @@ abstract class JFXApplication extends Application {
 
   private final var capabilities : Capabilities = null
 
-  private[jfxtensions] def setUp() : Unit = {
+  private[jfxtend] def setUp() : Unit = {
     capabilities = new Capabilities
   }
 
@@ -63,7 +63,7 @@ abstract class JFXApplication extends Application {
     Application.launch(classOf[MainHelper.InstantiableApp], args: _*)
   }
 
-  private[jfxtensions] def tearDown() : Unit = {
+  private[jfxtend] def tearDown() : Unit = {
 
   }
 }
@@ -76,7 +76,7 @@ object MainHelper {
       instance.setUp
       instance.init()
     }
-    def start(stage: Stage) = {
+    def start(stage: JFXStage) = {
       instance.start(stage)
       stage.show()
     }

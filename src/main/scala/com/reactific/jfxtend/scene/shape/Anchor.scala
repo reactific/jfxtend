@@ -1,4 +1,4 @@
-package com.reactific.jfxtensions.scene.shape
+package com.reactific.jfxtend.scene.shape
 
 import javafx.scene.shape.Sphere
 

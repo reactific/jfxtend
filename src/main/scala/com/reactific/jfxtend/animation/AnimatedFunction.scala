@@ -1,4 +1,4 @@
-package com.reactific.jfxtensions.animation
+package com.reactific.jfxtend.animation
 
 import javafx.animation.AnimationTimer
 

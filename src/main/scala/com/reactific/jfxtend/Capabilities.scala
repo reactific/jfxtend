@@ -1,5 +1,4 @@
-package com.reactific.jfxtensions
-
+package com.reactific.jfxtend
 
 import javafx.application.{ConditionalFeature, Platform}
 

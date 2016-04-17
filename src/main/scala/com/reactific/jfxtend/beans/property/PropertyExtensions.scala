@@ -1,20 +1,22 @@
-package com.reactific.jfxtensions.beans.property
+package com.reactific.jfxtend.beans.property
 
 import javafx.beans.property.Property
 import javafx.beans.value.ObservableValue
 
 /** Extensions For Generic Non-Object Properties */
 trait PropertyExtensions[@specialized(Boolean,Int,Long,Float,Double) T] {
-  def wrapped : Property[T]
-  @inline def value : T = wrapped.getValue
-  @inline def value_=(v: T) = wrapped.setValue(v)
+
+  def extendee : Property[T]
+
+  @inline def value : T = extendee.getValue
+  @inline def value_=(v: T) = extendee.setValue(v)
 
   /** Create a unidirectional binding from this Property to an ObservableValue of corresponding type
     *
     * @param v The observable value to bind to
     */
   @inline def <==(v: ObservableValue[T]) = {
-    wrapped.bind(v)
+    extendee.bind(v)
   }
 
   /**
@@ -23,6 +25,6 @@ trait PropertyExtensions[@specialized(Boolean,Int,Long,Float,Double) T] {
     * @param  v the other ScalaFX Property
     */
   @inline def <==>(v: Property[T]) = {
-    wrapped.bindBidirectional(v)
+    extendee.bindBidirectional(v)
   }
 }
