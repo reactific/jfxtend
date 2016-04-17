@@ -1,12 +1,10 @@
 
 
-import com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin.autoImport.FileAssociation
 import sbt.Keys._
 import sbt._
 
 import com.typesafe.sbt.packager.archetypes.JavaAppPackaging
 import com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin
-import com.typesafe.sbt.packager.jdkpackager.JDKPackagerPlugin.autoImport._
 
 import com.reactific.sbt.ProjectPlugin
 import com.reactific.sbt.ProjectPlugin.autoImport._
@@ -17,12 +15,11 @@ import scoverage.ScoverageSbtPlugin
 object JFXtensionsBuild extends Build {
 
   val jfxtend_dependencies = Seq(
-    // "org.scalafx" %% "scalafx" % "8.0.60-R9"
   )
 
   val classesIgnoredByScoverage : String = Seq[String](
     "<empty>", // Avoids warnings from scoverage
-    "com.reactific.jfxtensions.BuildInfo"
+    "com.reactific.jfxtend.BuildInfo"
   ).mkString(";")
 
   lazy val jfxtend = Project("jfxtend", file(".")).
