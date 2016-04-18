@@ -15,6 +15,9 @@ import scoverage.ScoverageSbtPlugin
 object JFXtensionsBuild extends Build {
 
   val jfxtend_dependencies = Seq(
+    "de.codecentric.centerdevice" % "javafxsvg" % "1.1.0",
+    "org.testfx" % "testfx-core" % "4.0.4-alpha" % "test",
+    "org.testfx" % "openjfx-monocle" % "8u76-b04" % "test"
   )
 
   val classesIgnoredByScoverage : String = Seq[String](

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: org.apache.avalon.framework:avalon-framework-impl:4.3.1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.avalon.framework/avalon-framework-impl/jars/avalon-framework-impl-4.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.avalon.framework/avalon-framework-impl/docs/avalon-framework-impl-4.3.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.avalon.framework/avalon-framework-impl/srcs/avalon-framework-impl-4.3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

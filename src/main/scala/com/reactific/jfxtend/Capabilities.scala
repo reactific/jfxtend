@@ -27,6 +27,7 @@ class Capabilities {
   def shouldStartFullScreen = info.START_FULL_SCREEN
   def isDesktop = info.DESKTOP
   def isEmbedded = info.EMBEDDED
+  def isAccessibilityActive = Platform.isAccessibilityActive
   def hasHelvetica = info.HAS_HELVETICA
   def hasBendingPages = info.SUPPORTS_BENDING_PAGES
   def hasControls = Platform.isSupported(ConditionalFeature.CONTROLS)

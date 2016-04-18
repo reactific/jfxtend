@@ -4,10 +4,10 @@ import javafx.collections.ObservableList
 import javafx.scene.Scene
 import javafx.scene.image.Image
 import javafx.scene.input.KeyCombination
-import javafx.stage.{Modality, Stage ⇒ JFXStage, Window ⇒ JFXWindow}
+import javafx.stage.{Modality, Stage, Window}
 
 /** Extensions To JavaFX Stage */
-trait StageExtensions extends WindowExtensions[JFXStage] {
+trait StageExtensions extends WindowExtensions[Stage] {
   /**
     * Defines whether this `Stage` is kept on top of other windows.
     */
@@ -102,6 +102,6 @@ trait StageExtensions extends WindowExtensions[JFXStage] {
   /**
     * Retrieves the owner Window for this stage, or [[scala.None]] for an unowned stage.
     */
-  @inline def owner: Option[JFXWindow] = Option(extendee.getOwner)
+  @inline def owner: Option[Window] = Option(extendee.getOwner)
 
 }

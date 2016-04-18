@@ -1,13 +1,13 @@
 package com.reactific.jfxtend.stage
 
 import javafx.event.{EventHandler, EventDispatcher}
-import javafx.stage.{Window ⇒ JFXWindow, WindowEvent}
+import javafx.stage.{Window, WindowEvent}
 
 import com.reactific.jfxtend.Extension
 
 
 /** Extensions to JavaFX Window */
-trait WindowExtensions[T <: JFXWindow] extends Extension[T] {
+trait WindowExtensions[T <: Window] extends Extension[T] {
 
   @inline def x : Double = extendee.getX
   @inline def x_=(value : Double) = extendee.setX(value)
@@ -49,5 +49,3 @@ trait WindowExtensions[T <: JFXWindow] extends Extension[T] {
   @inline def eventDispatcher = extendee.getEventDispatcher
   @inline def eventDispatcher_=(value : EventDispatcher) = extendee.setEventDispatcher(value)
 }
-
-class Window extends JFXWindow with WindowExtensions[JFXWindow] { val extendee = this }
